@@ -53,6 +53,11 @@ export default function EditProfile() {
               icon: "warning",
               title: err.reponse.data.message,
             });
+          } else {
+            swal({
+              icon: "warning",
+              title: "Terjadi kesalahan jaringan!",
+            });
           }
         });
     }
@@ -106,6 +111,7 @@ export default function EditProfile() {
           <div className='mt-5 flex flex-row justify-center'>
             <img
               id='imgPreview'
+              alt='foto profil'
               class='inline-block h-40 w-40 rounded-full ring-2 ring-white'
             />
           </div>

@@ -2,7 +2,7 @@ import { useState } from "react";
 import Axios from "axios";
 import swal from "sweetalert";
 import { Link, useNavigate } from "react-router-dom";
-import { Card, Label, TextInput, Button } from "flowbite-react";
+import { Card, Label, TextInput, Button, Spinner } from "flowbite-react";
 import { Icon } from "react-icons-kit";
 import { eyeOff } from "react-icons-kit/feather/eyeOff";
 import { eye } from "react-icons-kit/feather/eye";
@@ -12,6 +12,7 @@ export default function LoginPage() {
   const [type, setType] = useState("password");
   const [icon, setIcon] = useState(eyeOff);
   const [disable, setDisable] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [input, setInput] = useState({
     emailUsername: "",
     password: "",
@@ -32,6 +33,7 @@ export default function LoginPage() {
   const loginHandler = (e) => {
     e.preventDefault();
     setDisable(true);
+    setLoading(true);
     let { emailUsername, password } = input;
     Axios.post(`http://localhost:2000/auth/login`, {
       emailUsername,
@@ -50,6 +52,7 @@ export default function LoginPage() {
         localStorage.setItem("token", token);
         navigate("/home");
         setDisable(false);
+        setLoading(false);
       })
       .catch((err) => {
         if (err.response) {
@@ -64,6 +67,7 @@ export default function LoginPage() {
           });
         }
         setDisable(false);
+        setLoading(false);
       });
   };
   return (
@@ -147,6 +151,17 @@ export default function LoginPage() {
                   <Button disabled={disable} className='w-24' type='submit'>
                     Login
                   </Button>
+                </div>
+                <div className='flex flex-row justify-start'>
+                  <div className='mr-8 mt-4'>
+                    {loading ? (
+                      <>
+                        <Spinner aria-label='Default status example' />
+                      </>
+                    ) : (
+                      <></>
+                    )}
+                  </div>
                 </div>
                 <div className='ml-4 flex flex-col'>
                   <Link className='mb-4' to='/register'>

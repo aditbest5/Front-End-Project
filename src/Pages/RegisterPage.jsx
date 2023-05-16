@@ -2,7 +2,7 @@ import { useState } from "react";
 import Axios from "axios";
 import swal from "sweetalert";
 import { Link, useNavigate } from "react-router-dom";
-import { Card, Label, TextInput, Button } from "flowbite-react";
+import { Card, Label, TextInput, Button, Spinner } from "flowbite-react";
 import { Icon } from "react-icons-kit";
 import { eyeOff } from "react-icons-kit/feather/eyeOff";
 import { eye } from "react-icons-kit/feather/eye";
@@ -14,6 +14,7 @@ export default function RegisterPage() {
   const [icon1, setIcon1] = useState(eyeOff);
   const [disable, setDisable] = useState(false);
   const [icon2, setIcon2] = useState(eyeOff);
+  const [loading, setLoading] = useState(false);
   const [input, setInput] = useState({
     email: "",
     username: "",
@@ -36,6 +37,7 @@ export default function RegisterPage() {
   const registerHandler = (e) => {
     e.preventDefault();
     setDisable(true);
+    setLoading(true);
     let { username, email, password, confirmPassword } = input;
     Axios.post(`http://localhost:2000/auth/register`, {
       email,
@@ -56,6 +58,7 @@ export default function RegisterPage() {
           confirmPassword: "",
         });
         setDisable(false);
+        setLoading(false);
         navigate("/");
       })
       .catch((err) => {
@@ -71,6 +74,7 @@ export default function RegisterPage() {
           });
         }
         setDisable(false);
+        setLoading(false);
       });
   };
   return (
@@ -218,12 +222,24 @@ export default function RegisterPage() {
                     Register
                   </Button>
                 </div>
+
                 <div className='ml-4'>
                   <Link to='/'>
                     <h1 className='text-sky-500	'>
                       Already Have Account? Sign in!
                     </h1>
                   </Link>
+                </div>
+              </div>
+              <div className='flex flex-row justify-start'>
+                <div className='ml-8'>
+                  {loading ? (
+                    <>
+                      <Spinner aria-label='Default status example' />
+                    </>
+                  ) : (
+                    <></>
+                  )}
                 </div>
               </div>
             </form>

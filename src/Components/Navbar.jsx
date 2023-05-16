@@ -2,12 +2,11 @@ import { Navbar, Dropdown, Avatar } from "flowbite-react";
 import { Link, useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 import { GlobalContext } from "../Context/GlobalContext";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 
 export default function MyNavbar() {
   const { state } = useContext(GlobalContext);
   const { user } = state;
-
   const navigate = useNavigate();
   const logoutHandler = () => {
     localStorage.removeItem("token");
