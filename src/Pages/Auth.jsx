@@ -7,7 +7,7 @@ const Authentication = () => {
   const { token } = useParams();
   useEffect(() => {
     Axios.patch(
-      `http://localhost:2000/auth/verified`,
+      `https://api-sosmed.project-adit.my.id/auth/verified`,
       {},
       {
         headers: {

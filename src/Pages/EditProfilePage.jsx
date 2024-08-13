@@ -41,11 +41,11 @@ export default function EditProfile() {
       let formData = new FormData();
       formData.append("file", file);
       console.log(formData);
-      Axios.post("http://localhost:2000/album/upload", formData, {
+      Axios.post("https://api-sosmed.project-adit.my.id/album/upload", formData, {
         headers: { Authorization: "Bearer " + localStorage.getItem("token") },
       })
         .then((res) => {
-          swal({ title: res.data.message, icon: "success" });
+          swal({ title: res.data.message, sicon: "success" });
         })
         .catch((err) => {
           if (err.reponse) {
@@ -66,7 +66,7 @@ export default function EditProfile() {
     e.preventDefault();
     const { username, fullname, biodata } = input;
     Axios.patch(
-      `http://localhost:2000/user/edit-user`,
+      `https://api-sosmed.project-adit.my.id/user/edit-user`,
       {
         username,
         fullname,

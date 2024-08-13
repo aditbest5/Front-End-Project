@@ -41,7 +41,7 @@ export default function MyNavbar() {
                     img={
                       user.profile_picture === null
                         ? ""
-                        : "http://localhost:2000" + user.profile_picture
+                        : "https://api-sosmed.project-adit.my.id" + user.profile_picture
                     }
                     rounded={true}
                   />

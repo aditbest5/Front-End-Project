@@ -43,7 +43,7 @@ export default function ChangePassowrd() {
     e.preventDefault();
     const { currentPassword, newPassword } = input;
     Axios.patch(
-      `http://localhost:2000/user/edit-password`,
+      `https://api-sosmed.project-adit.my.id/user/edit-password`,
       {
         currentPassword,
         newPassword,
@@ -87,7 +87,7 @@ export default function ChangePassowrd() {
           <div className='mt-5 flex flex-row justify-center'>
             <Avatar
               alt={user.username}
-              img={"http://localhost:2000" + user.profile_picture}
+              img={"https://api-sosmed.project-adit.my.id" + user.profile_picture}
               rounded={true}
               bordered={true}
               size='xl'

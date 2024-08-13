@@ -45,7 +45,7 @@ export default function ResetPassword() {
     );
   };
   useEffect(() => {
-    Axios.get(`http://localhost:2000/user/reset-token`, {
+    Axios.get(`https://api-sosmed.project-adit.my.id/user/reset-token`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -70,7 +70,7 @@ export default function ResetPassword() {
     setDisable(true);
     const { newPassword, confirmPassword } = input;
     Axios.patch(
-      `http://localhost:2000/user/reset-password`,
+      `https://api-sosmed.project-adit.my.id/user/reset-password`,
       {
         newPassword,
         confirmPassword,

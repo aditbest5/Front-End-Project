@@ -27,7 +27,7 @@ export default function Home() {
   };
   console.log(commenting);
   const fetchPosting = () => {
-    Axios.get(`http://localhost:2000/post/get-post`, {
+    Axios.get(`https://api-sosmed.project-adit.my.id/post/get-post`, {
       headers: { Authorization: "Bearer " + localStorage.getItem("token") },
     })
       .then((res) => {
@@ -49,7 +49,7 @@ export default function Home() {
       });
   };
   const fetchComment = () => {
-    Axios.get("http://localhost:2000/comment/get-comment", {
+    Axios.get("https://api-sosmed.project-adit.my.id/comment/get-comment", {
       headers: { Authorization: "Bearer " + localStorage.getItem("token") },
     })
       .then((res) => {
@@ -89,7 +89,7 @@ export default function Home() {
       let obj = { caption: input.caption };
       formData.append("data", JSON.stringify(obj));
       formData.append("file", file);
-      Axios.post("http://localhost:2000/post/post", formData, {
+      Axios.post("https://api-sosmed.project-adit.my.id/post/post", formData, {
         headers: { Authorization: "Bearer " + localStorage.getItem("token") },
       })
         .then((res) => {
@@ -114,7 +114,7 @@ export default function Home() {
     }
   };
   const deletePost = (idPost) => {
-    Axios.delete(`http://localhost:2000/post/delete-post/${idPost}`, {
+    Axios.delete(`https://api-sosmed.project-adit.my.id/post/delete-post/${idPost}`, {
       headers: { Authorization: "Bearer " + localStorage.getItem("token") },
     })
       .then((res) => {
@@ -145,7 +145,7 @@ export default function Home() {
   const saveButton = (id) => {
     const { caption } = input;
     Axios.patch(
-      `http://localhost:2000/post/update-post/${id}`,
+      `https://api-sosmed.project-adit.my.id/post/update-post/${id}`,
       { caption },
       {
         headers: { Authorization: "Bearer " + localStorage.getItem("token") },
@@ -174,7 +174,7 @@ export default function Home() {
   const postComment = (id) => {
     const { comment_text } = input;
     Axios.post(
-      `http://localhost:2000/comment/post/${id}`,
+      `https://api-sosmed.project-adit.my.id/comment/post/${id}`,
       { comment_text },
       {
         headers: { Authorization: "Bearer " + localStorage.getItem("token") },
@@ -212,7 +212,7 @@ export default function Home() {
                     <>
                       <img
                         className='max-w-lg max-h-80'
-                        src={"http://localhost:2000" + val.media}
+                        src={"https://api-sosmed.project-adit.my.id" + val.media}
                       />
                       <div className='flex flex-row justify-start'>
                         <FaHeart size={20} className='mr-5' />{" "}
@@ -245,7 +245,7 @@ export default function Home() {
                       <div className='flex flex-row justify-between'>
                         <img
                           className='max-w-lg max-h-80'
-                          src={"http://localhost:2000" + val.media}
+                          src={"https://api-sosmed.project-adit.my.id" + val.media}
                         />
                         <Dropdown
                           label='.
@@ -340,7 +340,7 @@ export default function Home() {
                 <Card className='w-9/12 my-6 bg-amber-200	'>
                   <img
                     className='max-w-lg max-h-80'
-                    src={"http://localhost:2000" + val.media}
+                    src={"https://api-sosmed.project-adit.my.id" + val.media}
                   />
                   <div className='flex flex-row justify-start'>
                     <FaHeart size={20} className='mr-5' />{" "}

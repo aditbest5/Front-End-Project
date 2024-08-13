@@ -7,7 +7,7 @@ export const GlobalProvider = (props) => {
   const [user, setUser] = useState([]);
   const state = { user, setUser };
   const fetchUser = () => {
-    Axios.get(`http://localhost:2000/user/get-user`, {
+    Axios.get(`https://api-sosmed.project-adit.my.id/user/get-user`, {
       headers: { Authorization: "Bearer " + localStorage.getItem("token") },
     })
       .then((res) => {

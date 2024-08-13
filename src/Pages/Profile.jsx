@@ -12,7 +12,7 @@ export default function ProfilePage() {
   console.log(user);
   const sendVerification = () => {
     Axios.patch(
-      `http://localhost:2000/auth/send-verification`,
+      `https://api-sosmed.project-adit.my.id/auth/send-verification`,
       {},
       { headers: { Authorization: "Bearer " + localStorage.getItem("token") } }
     )
@@ -42,7 +42,7 @@ export default function ProfilePage() {
               img={
                 user.profile_picture === null
                   ? ""
-                  : "http://localhost:2000" + user.profile_picture
+                  : "https://api-sosmed.project-adit.my.id" + user.profile_picture
               }
               rounded={true}
               bordered={true}

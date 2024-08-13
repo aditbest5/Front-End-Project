@@ -18,7 +18,7 @@ export default function ForgotPassword() {
     e.preventDefault();
     setDisable(true);
     const { email } = input;
-    Axios.post(`http://localhost:2000/user/send-forgot-password`, {
+    Axios.post(`https://api-sosmed.project-adit.my.id/user/send-forgot-password`, {
       email,
     })
       .then((res) => {

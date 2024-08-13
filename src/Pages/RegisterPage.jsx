@@ -39,7 +39,7 @@ export default function RegisterPage() {
     setDisable(true);
     setLoading(true);
     let { username, email, password, confirmPassword } = input;
-    Axios.post(`http://localhost:2000/auth/register`, {
+    Axios.post(`https://api-sosmed.project-adit.my.id/auth/register`, {
       email,
       username,
       password,

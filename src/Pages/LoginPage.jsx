@@ -35,7 +35,7 @@ export default function LoginPage() {
     setDisable(true);
     setLoading(true);
     let { emailUsername, password } = input;
-    Axios.post(`http://localhost:2000/auth/login`, {
+    Axios.post(`https://api-sosmed.project-adit.my.id/auth/login`, {
       emailUsername,
       password,
     })
